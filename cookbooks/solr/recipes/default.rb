@@ -39,6 +39,14 @@ node[:applications].each do |app,data|
     recursive true
   end
   
+  directory "/data/#{app}/jettyapps/solr/solr/conf" do
+    owner node[:owner_name]
+    group node[:owner_name]
+    mode 0777
+    action :create
+    recursive true
+  end
+  
   directory "/data/#{app}/current/solr" do
     owner node[:owner_name]
     group node[:owner_name]
