@@ -1,6 +1,6 @@
 check process solr_<%= @app %>_9080
   with pidfile /var/run/solr/<%= @app %>.pid
-  start program = "/engineyard/bin/solr <%= @app %> start" as uid <%= @app %> and gid <%= @app %>
-  stop program = "/engineyard/bin/solr <%= @app %> stop" as uid <%= @app %> and gid <%= @app %>
+  start program = "/engineyard/bin/solr <%= @app %> start" as uid <%= @owner_name %> and gid <%= @owner_name %>
+  stop program = "/engineyard/bin/solr <%= @app %> stop" as uid <%= @owner_name %> and gid <%= @owner_name %>
   if totalmem is greater than 192 MB for 2 cycles then restart      # eating up memory?
   group solr_<%= @app %>
