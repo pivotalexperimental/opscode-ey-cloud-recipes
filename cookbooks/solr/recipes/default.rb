@@ -88,8 +88,8 @@ node[:applications].each do |app,data|
   end
   
   execute "restart-monit-solr" do
-    command "/usr/bin/monit reload && " +
-            "/usr/bin/monit restart all -g solr_#{app}"
+    command "sudo /usr/bin/monit reload && " +
+            "sudo /usr/bin/monit restart all -g solr_#{app}"
     action :run
   end
 
