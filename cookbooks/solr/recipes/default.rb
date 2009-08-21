@@ -36,6 +36,7 @@ node[:applications].each do |app,data|
     group node[:owner_name]
     mode 0777
     action :create
+    recursive true
   end
   
   directory "/data/#{app}/current/solr" do
