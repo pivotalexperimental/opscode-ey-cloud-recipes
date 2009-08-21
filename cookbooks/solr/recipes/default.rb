@@ -36,8 +36,8 @@ node[:applications].each do |app,data|
   end
   
   directory "/data/#{app}/current/solr" do
-    owner "#{app}"
-    group "#{app}"
+    owner node[:owner_name]
+    group node[:owner_name]
     mode 0755
     recursive true
   end
