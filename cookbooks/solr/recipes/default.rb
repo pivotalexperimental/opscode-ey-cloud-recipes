@@ -12,6 +12,7 @@ node[:applications].each do |app,data|
     group node[:owner_name]
     mode 0755
     recursive true
+    action :create
   end
   
   directory "/var/run/solr" do
@@ -19,6 +20,7 @@ node[:applications].each do |app,data|
     group node[:owner_name]
     mode 0755
     recursive true
+    action :create
   end
   
   directory "/data/#{app}/shared/solr/data" do
@@ -33,6 +35,7 @@ node[:applications].each do |app,data|
     owner node[:owner_name]
     group node[:owner_name]
     mode 0777
+    action :create
   end
   
   directory "/data/#{app}/current/solr" do
@@ -40,6 +43,7 @@ node[:applications].each do |app,data|
     group node[:owner_name]
     mode 0755
     recursive true
+    action :create
   end
   
   link "/data/#{app}/current/solr/#{node[:environment][:framework_env]}" do
