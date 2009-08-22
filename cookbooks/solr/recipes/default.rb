@@ -67,8 +67,8 @@ node[:applications].each do |app,data|
     to "/data/#{app}/current/vendor/plugins/acts_as_solr/solr/solr/conf/solrconfig.xml"
   end
   
-  link "/data/#{app}/shared/pids" do
-    to "/data/#{app}/current/tmp/pids"
+  link "/data/#{app}/current/tmp/pids" do
+    to "/data/#{app}/shared/pids"
   end
 
   template "/engineyard/bin/solr" do
