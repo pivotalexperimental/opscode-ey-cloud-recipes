@@ -31,6 +31,14 @@ node[:applications].each do |app,data|
     recursive true
   end
   
+  directory "/data/#{app}/shared/pids" do
+    owner node[:owner_name]
+    group node[:owner_name]
+    mode 0755
+    action :create
+    recursive true
+  end
+
   directory "/data/#{app}/jettyapps/solr/logs" do
     owner node[:owner_name]
     group node[:owner_name]
